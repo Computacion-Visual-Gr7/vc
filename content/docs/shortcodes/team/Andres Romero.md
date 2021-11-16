@@ -1,4 +1,4 @@
-# aeromeror
+# Andres Esteban Romero Romero
 
 Estudiante de ingnieria de sistemas de la Universidad Nacional de Colombia, 22 años, principal interes en el area de desarrollo y ciencia de datos.
 
@@ -10,7 +10,15 @@ La ilusión de Ebbinghaus es una ilusión óptica que altera la percepción de l
 Esto sucede porque la percepción cambia debido a los pétalos de la flor más grandes y más pequeños.
 
 {{< p5-iframe sketch="/vc/sketches/Ebbinghaus.js" width="625" height="425" >}}
+{{< p5-iframe sketch="/vc/sketches/2.js" width="625" height="625" >}}
 
+## aplicacíon
+Esta ilusion optica se acentúa la diferencia aparente en el tamaño del elemento de prueba central y los elementos adyacentes o circundantes, si bien esta ilusión bastante “leve” y abierta a la modulación cognitiva puede utilizarse en medios en los que el tamaño es un factor relevante, como en el medio de la publicidad donde la percepcion de la cantidad de producto influye a la hora de comparar productos. 
+
+<div class="img" style="display: flex; justify-content: center;">
+    <img src="https://michaelbach.de/ot/cog-Delboeuf/DelboeufTeller.png" alt="drawing" width="400" > 
+    </img>
+</div><br>
 ## referencias
 
 * https://es.wikipedia.org/wiki/Ilusi%C3%B3n_de_Ebbinghaus
