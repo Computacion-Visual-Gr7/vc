@@ -4,16 +4,15 @@ function setup() {
   
   function draw() {
     background(220);
-    //mapping of mouseX variable and putting in the local       variable'k'.
+  
     let k = map(mouseX, 0, width, 200, 0)
   
-    //Circle 1
     noStroke()
-    fill(255, 233, 0)
+    fill(255, 165, 0)
     ellipse(160, 200, 50, 50)
   
     //Circle 1 petals colour
-    fill(155, 0, 215, k)
+    fill(0,255,127, k)
   
     //upper petals
     ellipse(110, 120, 90, 90)
@@ -28,11 +27,11 @@ function setup() {
     ellipse(260, 200, 90, 90)
   
     //Circle 2
-    fill(255, 233, 0)
+    fill(255, 165, 0)
     ellipse(450, 200, 50, 50)
   
     //Circle 2 petals color
-    fill(155, 0, 215, k)
+    fill(0,255,127, k)
   
     //up and down petals
     ellipse(450, 154, 25, 25)
