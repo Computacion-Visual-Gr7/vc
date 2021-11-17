@@ -17,7 +17,11 @@ El desvanecimiento de Troxler, también llamado desvanecimiento de Troxler o efe
 </div><br>
 
 ## Aplicación
-El desvanecimiento de Troxler se ha atribuido a la adaptación de neuronas vitales para percibir estímulos en el sistema visual. Es parte del principio general de los sistemas sensoriales que los estímulos invariables pronto desaparecen de nuestra conciencia. Por ejemplo, si se deja caer un pequeño trozo de papel en la parte interior del antebrazo, se siente durante un corto período de tiempo. Pronto, sin embargo, la sensación se desvanece. Esto se debe a que las neuronas táctiles se han adaptado y comienzan a ignorar el estímulo sin importancia. Pero si uno mueve el brazo hacia arriba y hacia abajo, dando distintos estímulos, seguirá sintiendo el papel.
+El desvanecimiento de Troxler se ha atribuido a la adaptación de neuronas vitales para percibir estímulos en el sistema visual. 
+Es parte del principio general de los sistemas sensoriales que los estímulos invariables pronto desaparecen de nuestra conciencia.
+Algunas veces se hace uso de este efecto para algunos estudios medicos sensoriales o en algunos test psicologicos.
+
+
 
 ## Referencias
 
