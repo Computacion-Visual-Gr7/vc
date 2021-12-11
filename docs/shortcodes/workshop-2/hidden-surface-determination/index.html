@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Painter&rsquo;s Algorithm #  referencias #  ">
+<meta name=description content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios. Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Painter&rsquo;s Algorithm #  referencias #  ">
+<meta property="og:description" content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios. Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/hidden-surface-determination/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-11T12:16:27-05:00">
+<meta property="article:modified_time" content="2021-12-11T17:05:38-05:00">
 <title>Hidden Surface Determination | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.4e691456cde55e8f7e1e6e4fa9f9b8d4d1c45646140744efc404704db092f3a8.js integrity="sha256-TmkUVs3lXo9+Hm5Pqfm41NHEVkYUB0TvxARwTbCS86g=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.b24b59f5af8682e3ee7cbb7f3a3b2c7e255405457c7233d5ac184ec96df5c678.js integrity="sha256-sktZ9a+GguPufLt/OjssfiVUBUV8cjPVrBhOyW31xng=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -139,27 +139,51 @@ Blog
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
+<li><a href=#algoritmos-de-visibilidad>Algoritmos de visibilidad</a></li>
 <li><a href=#painters-algorithm>Painter&rsquo;s Algorithm</a>
 <ul>
-<li><a href=#referencias>referencias</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>
 </nav>
 </aside>
 </header>
-<article class=markdown><h1 id=painters-algorithm>
+<article class=markdown><h1 id=algoritmos-de-visibilidad>
+Algoritmos de visibilidad
+<a class=anchor href=#algoritmos-de-visibilidad>#</a>
+</h1>
+<p>La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios.
+Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final. El problema en la actualidad se considera resuelto y para la mayoría de las aplicaciones interactivas el algoritmo de selección es el: z buffer.</p>
+<p>Otro ejemplo de estos algoritmos es:</p>
+<h1 id=painters-algorithm>
 Painter&rsquo;s Algorithm
 <a class=anchor href=#painters-algorithm>#</a>
 </h1>
+<p>Cuando se proyecta una escena de tres dimensiones en un plano de dos, es necesario determinar qué polígonos son visibles y cuáles no. El nombre del algoritmo se da por la analogía de un pintor que primero dibuja los elementos lejanos de una escena y después los cubre con los más cercanos. El algoritmo del pintor ordena todos los polígonos de una escena en función de su profundidad y después los pinta en ese orden, pintando encima de las partes que no son visibles y solucionando así el problema de la visibilidad.</p>
+<p>div class=&ldquo;img&rdquo; style=&ldquo;display: flex; justify-content: center;">
+<img src=https://upload.wikimedia.org/wikipedia/commons/8/84/Painter%27s_algorithm.png alt=drawing width=400>
+</img></p>
+</div><br>
+<p>pseudocodigo</p>
+<p>time complexity</p>
+<p>gif de funcionamiento</p>
+<p>ventajas</p>
+<p>problemas</p>
+<p>imagen problema</p>
 <h2 id=referencias>
-referencias
+Referencias
 <a class=anchor href=#referencias>#</a>
 </h2>
+<ul>
+<li><a href=https://es.wikipedia.org/wiki/Determinaci%C3%B3n_de_cara_oculta>https://es.wikipedia.org/wiki/Determinaci%C3%B3n_de_cara_oculta</a></li>
+<li><a href=https://grafica2016a.files.wordpress.com/2016/03/algoritmos-de-visibilidad.pdf>https://grafica2016a.files.wordpress.com/2016/03/algoritmos-de-visibilidad.pdf</a></li>
+<li></li>
+</ul>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/7f13de694a66533c33fb1723d6e76eada3ba1d30 title="Last modified by aortegaf | December 11, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/53ed3a9076a773da135f474ebb42ddfce40c14fe title="Last modified by aortegaf | December 11, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>December 11, 2021</span>
 </a>
@@ -175,9 +199,10 @@ referencias
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#algoritmos-de-visibilidad>Algoritmos de visibilidad</a></li>
 <li><a href=#painters-algorithm>Painter&rsquo;s Algorithm</a>
 <ul>
-<li><a href=#referencias>referencias</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>
