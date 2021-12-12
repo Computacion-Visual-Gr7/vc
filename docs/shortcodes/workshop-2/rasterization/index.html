@@ -2,23 +2,23 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Rasterization of a line #  para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes, una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que tenemos un punto inical y un punto final
+<meta name=description content="Rasterización de una línea #  Para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes, una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que tenemos un punto inical y un punto final
  
 las lineas rectas son continuas, pero contamos con una precisicion limitada para su representacion por medio de la pantalla, por lo que se hace uso de una serie de puntos discretos (píxeles) para aproximarnos a esto.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Rasterization of a line #  para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes, una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que tenemos un punto inical y un punto final
+<meta property="og:description" content="Rasterización de una línea #  Para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes, una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que tenemos un punto inical y un punto final
  
 las lineas rectas son continuas, pero contamos con una precisicion limitada para su representacion por medio de la pantalla, por lo que se hace uso de una serie de puntos discretos (píxeles) para aproximarnos a esto.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/rasterization/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-09T19:30:41-05:00">
+<meta property="article:modified_time" content="2021-12-12T02:09:12-05:00">
 <title>Rasterization | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.ce0c9d21703e9edc8e7a0be5b0dc740b50505f285a25be117c0846f652362106.js integrity="sha256-zgydIXA+ntyOegvlsNx0C1BQXyhaJb4RfAhG9lI2IQY=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.f47d7c45d12829b6e4f4145f7fbbd1e8bfe7173024ca69fcbfc98fe7245b82ce.js integrity="sha256-9H18RdEoKbbk9BRff7vR6L/nFzAkymn8v8mP5yRbgs4=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -143,9 +143,18 @@ Blog
 <aside class="hidden clearfix">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#rasterization-of-a-line>Rasterization of a line</a>
+<li><a href=#rasterización-de-una-línea>Rasterización de una línea</a>
 <ul>
-<li><a href=#algoritomo-de-bersenham>Algoritomo de Bersenham</a></li>
+<li>
+<ul>
+<li><a href=#mayor-que-1>Mayor que 1</a></li>
+<li><a href=#menor-que--1>Menor que -1</a></li>
+<li><a href=#entre-0-y-1>Entre 0 y 1</a></li>
+<li><a href=#entre--1-y-0>Entre -1 y 0</a></li>
+<li><a href=#casos-especiales>¿Casos especiales?</a></li>
+</ul>
+</li>
+<li><a href=#algoritmo-de-bersenham>Algoritmo de Bersenham</a></li>
 <li><a href=#referencias>referencias</a></li>
 </ul>
 </li>
@@ -153,11 +162,11 @@ Blog
 </nav>
 </aside>
 </header>
-<article class=markdown><h1 id=rasterization-of-a-line>
-Rasterization of a line
-<a class=anchor href=#rasterization-of-a-line>#</a>
+<article class=markdown><h1 id=rasterización-de-una-línea>
+Rasterización de una línea
+<a class=anchor href=#rasterizaci%c3%b3n-de-una-l%c3%adnea>#</a>
 </h1>
-<p>para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes,
+<p>Para partir con la idea de la rasterizacion de una linea debemos definir primero sus componentes,
 una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que tenemos un punto inical y un punto final</p>
 <div class=img style=display:flex;justify-content:center>
 <img src=https://www.ecured.cu/images/0/0d/Distancia_entre_dos_puntos_1.JPG alt=drawing width=400>
@@ -173,9 +182,35 @@ una linea se puede expresar a partir de dos puntos de la forma (x,y) en el que t
 <img src=https://sites.google.com/site/geometriaanaliticalmaf/_/rsrc/1521033317656/pendiente-de-una-recta/S6.png alt=drawing width=400>
 </img>
 </div><br>
-<h2 id=algoritomo-de-bersenham>
-Algoritomo de Bersenham
-<a class=anchor href=#algoritomo-de-bersenham>#</a>
+<p>la dimensión de esta variación a su vez nos indica nos indica hechos claves a la hora de la representación de la línea como lo son en qué eje varía más rápido la línea y en qué dirección va la línea, de esta manera se agrupa en 4 grupos:</p>
+<h3 id=mayor-que-1>
+Mayor que 1
+<a class=anchor href=#mayor-que-1>#</a>
+</h3>
+<p>Cuando se da esta situación la variación de y es mayor a la de x por lo que se sugiere que el algoritmo de rasterización evalúe por cada coordenada de y a que coordenada de x corresponde ( ya que para cada y hay un x, pero para cada x hay varios y), por otro lado su valor positivo indica que al incrementarse en x se incrementa y viéndose como una línea ascendente, esta observación puede ser útil en un ciclo que evalúe los puntos por ejemplo.</p>
+<h3 id=menor-que--1>
+Menor que -1
+<a class=anchor href=#menor-que--1>#</a>
+</h3>
+<p>Al ser la variación de y mayor a la de x, evaluar por cada coordenada de y a que coordenada de x corresponde es una idea a tener en cuenta, sin embargo en este caso es negativa indicando que al incrementarse en x decrece y viéndose como una línea descendente.</p>
+<h3 id=entre-0-y-1>
+Entre 0 y 1
+<a class=anchor href=#entre-0-y-1>#</a>
+</h3>
+<p>Cuando se da esta situación la variación de x es mayor a la de y por lo que se sugiere que el algoritmo de rasterización evalúe por cada coordenada de x a que coordenada de y corresponde ( ya que para cada x hay un y, pero para cada y hay varios x), siendo su valor positivo corresponde a una línea ascendente.</p>
+<h3 id=entre--1-y-0>
+Entre -1 y 0
+<a class=anchor href=#entre--1-y-0>#</a>
+</h3>
+<p>Al ser la variación de x mayor a la de y, evaluar por cada coordenada de x a que coordenada de y corresponde es una idea a tener en cuenta, sin embargo en este caso es negativa indicando que al incrementarse en x decrece y viendose como una linea descendente.</p>
+<h3 id=casos-especiales>
+¿Casos especiales?
+<a class=anchor href=#casos-especiales>#</a>
+</h3>
+<p>Hay cuatro casos que no mencionamos dentro de los grupos anteriores, sin embargo esto se debe a que se puede considerar que pertenecen a dos grupos, la línea vertical con pendiente &ldquo;infinita&rdquo; se podría decir que no pertenece a entre -1 y 1, ya que lo importante es evaluar para cada y el x( que siempre sera el mismo), para la línea horizontal con pendiente 0 se podría decir que pertenece a entre -1 y 1, ya que lo importante es evaluar para cada x el y(que siempre será el mismo)y para los casos de pendiente 1 o -1 el comportamiento involucra que cada y se empareja con una sola x , y que cada x se empareja con una sola y.</p>
+<h2 id=algoritmo-de-bersenham>
+Algoritmo de Bersenham
+<a class=anchor href=#algoritmo-de-bersenham>#</a>
 </h2>
 <p>Este algoritmo genera líneas usando sólo cálculos incrementales, Bresenham cambió la pregunta de
 ¿Cuál es el valor de y en x+1? Por la de ¿Cuál es el pixel que debemosdibujar ahora?
@@ -210,9 +245,9 @@ referencias
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/a40c5ec9788fbdda21068d620f9475d7d0722627 title="Last modified by aeromeror | December 10, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/cd5f80b2321aa44f2ba322a3facc9a6ab10e82f8 title="Last modified by Yerson1995 | December 12, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 10, 2021</span>
+<span>December 12, 2021</span>
 </a>
 </div>
 </div>
@@ -226,9 +261,18 @@ referencias
 <div class=book-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#rasterization-of-a-line>Rasterization of a line</a>
+<li><a href=#rasterización-de-una-línea>Rasterización de una línea</a>
 <ul>
-<li><a href=#algoritomo-de-bersenham>Algoritomo de Bersenham</a></li>
+<li>
+<ul>
+<li><a href=#mayor-que-1>Mayor que 1</a></li>
+<li><a href=#menor-que--1>Menor que -1</a></li>
+<li><a href=#entre-0-y-1>Entre 0 y 1</a></li>
+<li><a href=#entre--1-y-0>Entre -1 y 0</a></li>
+<li><a href=#casos-especiales>¿Casos especiales?</a></li>
+</ul>
+</li>
+<li><a href=#algoritmo-de-bersenham>Algoritmo de Bersenham</a></li>
 <li><a href=#referencias>referencias</a></li>
 </ul>
 </li>
