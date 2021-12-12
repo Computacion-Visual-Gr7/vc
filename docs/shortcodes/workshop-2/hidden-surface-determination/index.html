@@ -2,19 +2,23 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios. Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
+<meta name=description content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios.
+imagen: https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.imgtec.com%2FArchitecture_Guides%2FPowerVR_Architecture%2Ftopics%2Fpowervr_architecture_hidden_surface_removal_efficiency.html&psig=AOvVaw08R7OZ_AbLfcdhsbXldcOU&ust=1639342481434000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIilw-bQ3PQCFQAAAAAdAAAAABAD
+Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios. Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
+<meta property="og:description" content="Algoritmos de visibilidad #  La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios.
+imagen: https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.imgtec.com%2FArchitecture_Guides%2FPowerVR_Architecture%2Ftopics%2Fpowervr_architecture_hidden_surface_removal_efficiency.html&psig=AOvVaw08R7OZ_AbLfcdhsbXldcOU&ust=1639342481434000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIilw-bQ3PQCFQAAAAAdAAAAABAD
+Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/hidden-surface-determination/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-11T17:05:38-05:00">
+<meta property="article:modified_time" content="2021-12-11T20:31:45-05:00">
 <title>Hidden Surface Determination | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.b24b59f5af8682e3ee7cbb7f3a3b2c7e255405457c7233d5ac184ec96df5c678.js integrity="sha256-sktZ9a+GguPufLt/OjssfiVUBUV8cjPVrBhOyW31xng=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.ce0c9d21703e9edc8e7a0be5b0dc740b50505f285a25be117c0846f652362106.js integrity="sha256-zgydIXA+ntyOegvlsNx0C1BQXyhaJb4RfAhG9lI2IQY=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -153,24 +157,32 @@ Blog
 Algoritmos de visibilidad
 <a class=anchor href=#algoritmos-de-visibilidad>#</a>
 </h1>
-<p>La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios.
-Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final. El problema en la actualidad se considera resuelto y para la mayoría de las aplicaciones interactivas el algoritmo de selección es el: z buffer.</p>
+<p>La determinación de las caras ocultas (HSR), en gráficos por computadores, es el proceso usado para determinar que superficies y partes de superficies son visibles o no desde algún ángulo de observación y ha sido un problema esencial desde sus inicios.</p>
+<p>imagen: <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.imgtec.com%2FArchitecture_Guides%2FPowerVR_Architecture%2Ftopics%2Fpowervr_architecture_hidden_surface_removal_efficiency.html&psig=AOvVaw08R7OZ_AbLfcdhsbXldcOU&ust=1639342481434000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIilw-bQ3PQCFQAAAAAdAAAAABAD">https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.imgtec.com%2FArchitecture_Guides%2FPowerVR_Architecture%2Ftopics%2Fpowervr_architecture_hidden_surface_removal_efficiency.html&psig=AOvVaw08R7OZ_AbLfcdhsbXldcOU&ust=1639342481434000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIilw-bQ3PQCFQAAAAAdAAAAABAD</a></p>
+<p>Una variedad de algoritmos de HSR (hidden surface determination) fueron desarrollados en los años 70, para resolver el problema de la determinación de secciones visibles de los objetos en la imagen final. El problema en la actualidad se considera resuelto y para la mayoría de las aplicaciones interactivas el algoritmo de selección es el: z buffer.</p>
 <p>Otro ejemplo de estos algoritmos es:</p>
 <h1 id=painters-algorithm>
 Painter&rsquo;s Algorithm
 <a class=anchor href=#painters-algorithm>#</a>
 </h1>
 <p>Cuando se proyecta una escena de tres dimensiones en un plano de dos, es necesario determinar qué polígonos son visibles y cuáles no. El nombre del algoritmo se da por la analogía de un pintor que primero dibuja los elementos lejanos de una escena y después los cubre con los más cercanos. El algoritmo del pintor ordena todos los polígonos de una escena en función de su profundidad y después los pinta en ese orden, pintando encima de las partes que no son visibles y solucionando así el problema de la visibilidad.</p>
-<p>div class=&ldquo;img&rdquo; style=&ldquo;display: flex; justify-content: center;">
-<img src=https://upload.wikimedia.org/wikipedia/commons/8/84/Painter%27s_algorithm.png alt=drawing width=400>
-</img></p>
-</div><br>
-<p>pseudocodigo</p>
-<p>time complexity</p>
-<p>gif de funcionamiento</p>
-<p>ventajas</p>
-<p>problemas</p>
-<p>imagen problema</p>
+<p>imagen: <a href=https://upload.wikimedia.org/wikipedia/commons/8/84/Painter%27s_algorithm.png>https://upload.wikimedia.org/wikipedia/commons/8/84/Painter%27s_algorithm.png</a></p>
+<p>En términos de progamación, su pseudocódigo sería:</p>
+<p>sort polygons by depth
+for each polygon p:
+for each pixel that p covers:
+paint p.color on pixel</p>
+<p>La complejidad del algoritmo del pintor depende del algoritmo de ordenamiento que se utilice para organizar los polígonos. Asumiendo que se usa el algoritmo más óptimo, el peor caso para el pintor sería de O(nlogn + m*n), siendo n el número de polígonos y m el número de pixeles por rellenar.</p>
+<p>implementación o gif del algoritmo:</p>
+<p>EL algoritmo del pintor tiene dos grandes ventajas:</p>
+<ul>
+<li>Estructura gráfica básica: Su simplicidad lo vuelve muy útil en escenarios computacionales gráficos básicos donde no se requiere de renderizados sofisticados.</li>
+<li>Memoria eficiente: Prioriza el uso eficiente de memoria (a costa del alto poder de procesamiento necesario para renderizar cada parte de cada imagen)</li>
+</ul>
+<p>Por otro lado cuenta con algunos problemas, principalmente la superposición como se muestra a continuación:</p>
+<p>imagen : <a href=https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Painters_problem.svg/800px-Painters_problem.svg.png>https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Painters_problem.svg/800px-Painters_problem.svg.png</a></p>
+<p>Debido a que las figuras se intersecan, no es posible determinar cuál polígono está por encima de otro, de forma que para solucionarlo habría que cortar las figuras de alguna forma para su correcta ordenación.
+Otra desventaja sería la ineficiencia, puesto que el sistema al tener que renderizar cada punto de cada polígono en el plano visible hace que para escenas con gran nivel de detalle el hardware sea fuertemente afectado</p>
 <h2 id=referencias>
 Referencias
 <a class=anchor href=#referencias>#</a>
@@ -178,14 +190,14 @@ Referencias
 <ul>
 <li><a href=https://es.wikipedia.org/wiki/Determinaci%C3%B3n_de_cara_oculta>https://es.wikipedia.org/wiki/Determinaci%C3%B3n_de_cara_oculta</a></li>
 <li><a href=https://grafica2016a.files.wordpress.com/2016/03/algoritmos-de-visibilidad.pdf>https://grafica2016a.files.wordpress.com/2016/03/algoritmos-de-visibilidad.pdf</a></li>
-<li></li>
+<li><a href=https://en.wikipedia.org/wiki/Painter%27s_algorithm>https://en.wikipedia.org/wiki/Painter%27s_algorithm</a></li>
 </ul>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/53ed3a9076a773da135f474ebb42ddfce40c14fe title="Last modified by aortegaf | December 11, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/6c48c94436273c56f41d007ec4ffce49d0942b03 title="Last modified by aortegaf | December 12, 2021" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 11, 2021</span>
+<span>December 12, 2021</span>
 </a>
 </div>
 </div>
