@@ -27,8 +27,10 @@ En términos de progamación, su pseudocódigo sería:
     </img>
 </div>
 
-La complejidad del algoritmo del pintor depende del algoritmo de ordenamiento que se utilice para organizar los polígonos. Asumiendo que se usa el algoritmo más óptimo, el peor caso para el pintor sería de O(nlogn + m*n), siendo n el número de polígonos y m el número de pixeles por rellenar.
-
+<br>
+<div class="text" style="text-align: justify;">
+La complejidad del algoritmo del pintor depende del algoritmo de ordenamiento que se utilice para organizar los polígonos. Asumiendo que se usa el algoritmo más óptimo, el peor caso para el pintor sería de <b>O(nlogn + m*n)</b>, siendo n el número de polígonos y m el número de pixeles por rellenar.
+</div>
 
 EL algoritmo del pintor tiene dos grandes ventajas:
 - Estructura gráfica básica: Su simplicidad lo vuelve muy útil en escenarios computacionales gráficos básicos donde no se requiere de renderizados sofisticados.
