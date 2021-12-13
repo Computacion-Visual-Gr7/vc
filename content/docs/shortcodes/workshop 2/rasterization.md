@@ -38,7 +38,7 @@ Hay cuatro casos que no mencionamos dentro de los grupos anteriores, sin embargo
     </img>
 </div><br>
 
-## Algoritmo de Bersenham
+## Algoritmo de Bresenham
 
 Este algoritmo genera líneas usando sólo cálculos incrementales, Bresenham cambió la pregunta de
 ¿Cuál es el valor de y en x+1? Por la de ¿Cuál es el pixel que debemos dibujar ahora?
