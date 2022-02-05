@@ -49,6 +49,7 @@ de recta original.
 
 {{< p5-iframe sketch="/vc/sketches/Bersenham.js" width="425" height="425" >}}
 
+
 ## referencias
 
 - http://cs.uns.edu.ar/cg/clasespdf/3.2-Rasterizacion.pdf
