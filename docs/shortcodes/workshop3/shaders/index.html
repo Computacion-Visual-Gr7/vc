@@ -1,0 +1,480 @@
+<!doctype html><html lang=en dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Trabajos #  photomosaic algoritm
+ analisis de la imagen source  en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.
+ fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content>
+<meta property="og:description" content="Trabajos #  photomosaic algoritm
+ analisis de la imagen source  en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.
+ fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop3/shaders/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2022-02-04T20:26:05-05:00">
+<title>Shaders | Visual Computing</title>
+<link rel=manifest href=/vc/manifest.json>
+<link rel=icon href=/vc/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
+<script defer src=/vc/flexsearch.min.js></script>
+<script defer src=/vc/en.search.min.7b8b89b7206c1deb24c4c1607f44811a1d87f1f80ccb782e2fbe65f5f56c44ba.js integrity="sha256-e4uJtyBsHeskxMFgf0SBGh2H8fgMy3guL75l9fVsRLo=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/vc/><span>Visual Computing</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li class=book-section-flat>
+<span>Shortcodes</span>
+<ul>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/buttons/>Buttons</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/columns/>Columns</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/details/>Details</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/expand/>Expand</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/hints/>Hints</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/katex/>Katex</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/mermaid/>Mermaid</a>
+</li>
+<li>
+<input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
+<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between">
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/p5/>P5</a>
+</label>
+<ul>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/p5/div/>Div</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/p5/iframe/>Iframe</a>
+</li>
+</ul>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/tabs/>Tabs</a>
+</li>
+<li>
+<input type=checkbox id=section-5e90dfc1cda674fda3ec0abb0b45bf6a class=toggle>
+<label for=section-5e90dfc1cda674fda3ec0abb0b45bf6a class="flex justify-between">
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/>Team</a>
+</label>
+<ul>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/Andres-Ortega/>Andres Ortega</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/Andres-Romero/>Andres Romero</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/Oscar-Mancera/>Oscar Mancera</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/Yerson-Valderrama/>Yerson Valderrama</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/team/Camilo-Chaparro/>Caachaparrosi</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-20b2aaf9876868d8848e886df9924bdc class=toggle>
+<label for=section-20b2aaf9876868d8848e886df9924bdc class="flex justify-between">
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/>Workshop 2</a>
+</label>
+<ul>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/hidden-surface-determination/>Hidden Surface Determination</a>
+</li>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-2/rasterization/>Rasterization</a>
+</li>
+</ul>
+</li>
+<li>
+<input type=checkbox id=section-e5d4e557e211471385c7d15285ea39e0 class=toggle checked>
+<label for=section-e5d4e557e211471385c7d15285ea39e0 class="flex justify-between">
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop3/>Workshop3</a>
+</label>
+<ul>
+<li>
+<a href=https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop3/shaders/ class=active>Shaders</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<a href=/vc/posts/>
+Blog
+</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/vc/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Shaders</strong>
+<label for=toc-control>
+<img src=/vc/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#trabajos>Trabajos</a></li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=trabajos>
+Trabajos
+<a class=anchor href=#trabajos>#</a>
+</h1>
+<p>photomosaic algoritm</p>
+<ol>
+<li>analisis de la imagen source</li>
+</ol>
+<p>en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.</p>
+<div class=book-expand>
+<label>
+<div class="book-expand-head flex justify-between">
+<span>fragment shader spacial coherence</span>
+<span>↕</span>
+</div>
+<input type=checkbox class=hidden>
+<div class="book-expand-content markdown-inner">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js>
+<span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+
+<span style=color:#75715e>// img (image or video) is sent by the sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>img</span>;
+<span style=color:#75715e>// om is sent by the sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>om</span>;
+<span style=color:#75715e>// displays original
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>bool</span> <span style=color:#a6e22e>original</span>;
+<span style=color:#75715e>// toggles om display
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>bool</span> <span style=color:#a6e22e>om_on</span>;
+<span style=color:#75715e>// target horizontal &amp; vertical resolution
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>resolution</span>;
+
+<span style=color:#75715e>// interpolated color (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>vVertexColor</span>;
+<span style=color:#75715e>// interpolated texcoord (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>vTexCoord</span>;
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>original</span>) {
+    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>img</span>, <span style=color:#a6e22e>vTexCoord</span>);
+  }
+  <span style=color:#66d9ef>else</span> {
+    <span style=color:#75715e>// remap omCoord to [0.0, resolution] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vTexCoord</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>resolution</span>;
+    <span style=color:#75715e>// remap imgCoord to [0.0, resolution] ∈ Z
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(<span style=color:#a6e22e>omCoord</span>);
+    <span style=color:#75715e>// remap omCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>imgCoord</span>;
+    <span style=color:#75715e>// remap imgCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>vec2</span>(<span style=color:#a6e22e>resolution</span>);
+    <span style=color:#75715e>// image texel (may be used as color hash key, e.g., photomosaic)
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>imgTexel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>img</span>, <span style=color:#a6e22e>imgCoord</span>);
+    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>om_on</span>) {
+      <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>black</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec4</span>(<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>1.0</span>);
+      <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>omTexel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>om</span>, <span style=color:#a6e22e>omCoord</span>);
+      <span style=color:#75715e>// glsl all: https://thebookofshaders.com/glossary/?search=all
+</span><span style=color:#75715e></span>      <span style=color:#75715e>// glsl equal: https://thebookofshaders.com/glossary/?search=equal
+</span><span style=color:#75715e></span>      <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>equal</span>(<span style=color:#a6e22e>omTexel</span>, <span style=color:#a6e22e>black</span>)) <span style=color:#f92672>?</span> <span style=color:#a6e22e>imgTexel</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>omTexel</span>;
+    }
+    <span style=color:#66d9ef>else</span> {
+      <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>imgTexel</span>;
+    }
+  }
+}
+</code></pre></div>
+</div>
+</label>
+</div>
+<p>a partir e ese fragment shader se destacaron partes del codigo usables para el mosaico
+<div class=book-expand>
+<label>
+<div class="book-expand-head flex justify-between">
+<span>fragment shader spacial coherence partes utilizadas</span>
+<span>↕</span>
+</div>
+<input type=checkbox class=hidden>
+<div class="book-expand-content markdown-inner">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js>
+<span style=color:#75715e>// img (image or video) is sent by the sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>img</span>;
+
+<span style=color:#75715e>// target horizontal &amp; vertical resolution
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>resolution</span>;
+
+<span style=color:#75715e>// interpolated color (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>vVertexColor</span>;
+<span style=color:#75715e>// interpolated texcoord (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>vTexCoord</span>;
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#75715e>// remap omCoord to [0.0, resolution] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vTexCoord</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>resolution</span>;
+    <span style=color:#75715e>// remap imgCoord to [0.0, resolution] ∈ Z
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(<span style=color:#a6e22e>omCoord</span>);
+    <span style=color:#75715e>// remap omCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>omCoord</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>imgCoord</span>;
+    <span style=color:#75715e>// remap imgCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>imgCoord</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>vec2</span>(<span style=color:#a6e22e>resolution</span>);
+    <span style=color:#75715e>// image texel (may be used as color hash key, e.g., photomosaic)
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>imgTexel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>img</span>, <span style=color:#a6e22e>imgCoord</span>);
+    
+    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>imgTexel</span>;
+    
+}
+</code></pre></div>
+</div>
+</label>
+</div>
+se añadio la posibilidad de cargar las imagenes por medio de un boton
+<iframe id=pas1 style=width:610px;height:610px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.shaderbox/p5.shaderbox.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script>
+            
+            
+            
+            
+            
+            <script src=/vc/sketches/pas1.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+</p>
+<ol start=2>
+<li>Ordenamiento de los elementos de la paleta</li>
+</ol>
+<p>para este ordenamiento se hace uso de la libreria Quadrille de p5 que tiene 3 modos o criterios de ordenamiento,
+LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
+<iframe id=pas2 style=width:1010px;height:170px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.shaderbox/p5.shaderbox.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script>
+            
+            
+            
+            
+            
+            <script src=/vc/sketches/pas2.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+</p>
+<ol start=3>
+<li>Hacer el reemplazo de los pixeles a baja reolución con los elementos de la paleta</li>
+</ol>
+<p>para este paso se leen las 10 imagenes</p>
+<p>
+<div class=book-expand>
+<label>
+<div class="book-expand-head flex justify-between">
+<span>fragment shader spacial coherence partes utilizadas</span>
+<span>↕</span>
+</div>
+<input type=checkbox class=hidden>
+<div class="book-expand-content markdown-inner">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+
+<span style=color:#75715e>// source (image or video) is sent by the sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>img</span>;
+
+<span style=color:#75715e>// palette is sent by the sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>palette</span>;
+<span style=color:#75715e>// number of cols are sent by sketch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>cols</span>;
+
+<span style=color:#75715e>// toggles debug
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>bool</span> <span style=color:#a6e22e>debug</span>;
+
+<span style=color:#75715e>// toggles coloring
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>bool</span> <span style=color:#a6e22e>color_on</span>;
+<span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>background</span>;
+<span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>foreground</span>;
+
+<span style=color:#75715e>// target horizontal &amp; vertical resolution
+</span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>resolution</span>;
+
+<span style=color:#75715e>// interpolated color (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>vVertexColor</span>;
+<span style=color:#75715e>// interpolated texcoord (same name and type as in vertex shader)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>vTexCoord</span>;
+
+<span style=color:#66d9ef>float</span> <span style=color:#a6e22e>luma</span>(<span style=color:#a6e22e>vec3</span> <span style=color:#a6e22e>color</span>) {
+  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0.299</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>color</span>.<span style=color:#a6e22e>r</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.587</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>color</span>.<span style=color:#a6e22e>g</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.114</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>color</span>.<span style=color:#a6e22e>b</span>;
+}
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+  <span style=color:#75715e>// remap fontCoord to [0.0, resolution] ∈ R
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>fontCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vTexCoord</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>resolution</span>;
+  <span style=color:#75715e>// remap srcCoord to [0.0, resolution] ∈ Z
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>srcCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(<span style=color:#a6e22e>fontCoord</span>);
+  <span style=color:#75715e>// remap fontCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>fontCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fontCoord</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>srcCoord</span>;
+  <span style=color:#75715e>// remap srcCoord to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>srcCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>srcCoord</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>vec2</span>(<span style=color:#a6e22e>resolution</span>);
+  <span style=color:#75715e>// get vec4 color hash key
+</span><span style=color:#75715e></span>  <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>imgTexel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>img</span>, <span style=color:#a6e22e>srcCoord</span>);
+  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>debug</span>) {
+    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>key</span>;
+  } <span style=color:#66d9ef>else</span> {
+    <span style=color:#75715e>// fontCoord.x :-&gt; offset + x
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// 1. offset
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// luma(key.rgb) * cols) : remap luma to [0.0, cols] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// floor(luma(key.rgb) * cols)) : remap luma to [0.0, cols] ∈ Z
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// floor(luma(key.rgb) * cols)) / cols : remap luma to [0.0, 1.0] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// 2. x (1 / cols : quadrille cell width)
+</span><span style=color:#75715e></span>    <span style=color:#75715e>// fontCoord.x / cols : remap fontCoord.x to [0.0, 1 / cols] ∈ R
+</span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>tile</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec2</span>((<span style=color:#a6e22e>floor</span>(<span style=color:#a6e22e>luma</span>(<span style=color:#a6e22e>key</span>.<span style=color:#a6e22e>rgb</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>cols</span>) <span style=color:#f92672>+</span> <span style=color:#a6e22e>fontCoord</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>/</span> <span style=color:#a6e22e>cols</span>, <span style=color:#a6e22e>fontCoord</span>.<span style=color:#a6e22e>y</span>);
+    <span style=color:#a6e22e>vec4</span> <span style=color:#a6e22e>paletteTexel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>palette</span>, <span style=color:#a6e22e>tile</span>);
+    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color_on</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>all</span>(<span style=color:#a6e22e>equal</span>(<span style=color:#a6e22e>paletteTexel</span>, <span style=color:#a6e22e>foreground</span>)) <span style=color:#f92672>?</span> <span style=color:#a6e22e>key</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>background</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>paletteTexel</span>;
+  }
+}
+</code></pre></div>
+</div>
+</label>
+</div>
+<iframe id=mosaic style=width:610px;height:610px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.shaderbox/p5.shaderbox.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script>
+            
+            
+            
+            
+            
+            <script src=/vc/sketches/mosaic.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+</p>
+<p>Para la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediate el boton de seleccion &ldquo;seleccione el tipo de sort&rdquo;, posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton &ldquo;descargar paleta&rdquo; tras esto se genera una imagen de la paleta que se podra usar en el siguiente script.
+<iframe id=paleta style=width:1010px;height:170px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.shaderbox/p5.shaderbox.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script>
+            
+            
+            
+            
+            
+            <script src=/vc/sketches/paleta.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+</p>
+<p>En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el prdenamoento pues esto se hace al momento de generar la paleta en el paso anterior.</p>
+<iframe id=mosaic2 style=width:610px;height:610px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.shaderbox/p5.shaderbox.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script>
+            
+            
+            
+            
+            
+            <script src=/vc/sketches/mosaic2.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/20da02d34f3f1f0fbf1aa9b077106f0f318c7341 title="Last modified by aeromeror | February 5, 2022" target=_blank rel=noopener>
+<img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
+<span>February 5, 2022</span>
+</a>
+</div>
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#trabajos>Trabajos</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
