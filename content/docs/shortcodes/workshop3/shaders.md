@@ -94,6 +94,12 @@ void main() {
 se añadio la posibilidad de cargar las imagenes por medio de un boton 
 {{< p5-iframe2 sketch="/vc/sketches/pas1.js" width="610" height="610" >}}
 
+# WEBCRAWLER
+
+<iframe id=craawler style=width:625px;height:625px src=/vc/sketches/web.html>
+</iframe>
+
+
 2. Ordenamiento de los elementos de la paleta
 
 para este ordenamiento se hace uso de la libreria Quadrille de p5 que tiene 3 modos  o criterios de ordenamiento,
