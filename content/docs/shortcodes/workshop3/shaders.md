@@ -96,8 +96,7 @@ se añadio la posibilidad de cargar las imagenes por medio de un boton
 
 # WEBCRAWLER
 
-<iframe id=craawler style=width:625px;height:625px src=/vc/sketches/web.html>
-</iframe>
+{{< p5-iframe2 sketch="/vc/sketches/webcrawler.js" width="625" height="625" >}}
 
 
 2. Ordenamiento de los elementos de la paleta
