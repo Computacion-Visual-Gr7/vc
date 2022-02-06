@@ -96,8 +96,7 @@ se añadio la posibilidad de cargar las imagenes por medio de un boton
 
 # WEBCRAWLER
 
-{{< p5-iframe2 sketch="/vc/sketches/webcrawler.js" width="625" height="625" >}}
-
+Al ejecutar el archivo webcrawler.js se imprime en consola una serie de imágenes obtenidas de una url
 
 2. Ordenamiento de los elementos de la paleta
 

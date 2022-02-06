@@ -1,31 +1,27 @@
-const cherio = require('cherio');
-const request = require('request');
-const fs = require('fs');
+const puppeteer = require('puppeteer');
 
-// Create a Write Stream 
-var WriteStream  = fs.createWriteStream("ImagesLink.txt", "UTF-8");
+(async () => {
+    const browser = await puppeteer.launch();
 
 
+        page = await browser.newPage();
+        await page.goto('https://wallpaperscraft.com/catalog/nature', {waitUntil: 'load'});
 
-request('https://www.bridgeport.edu/', (err, resp, html)=>{
+    const newPage = await page.evaluate(() => {
 
-    if(!err && resp.statusCode == 200){
-        console.log("Request was success ");
-        
-        // Define Cherio or $ Object 
-        const $ = cherio.load(html);
 
-        $("img").each((index, image)=>{
-
-            var img = $(image).attr('src');
-            var baseUrl = 'https://www.bridgeport.edu/';
-            var Links = baseUrl + img;
-            WriteStream.write(Links);
-            WriteStream.write("\n");
+        var imgs = document.getElementsByTagName("img");
+        var imgSrcs = [];
+        var wallpapers_image = "https://images.wallpaperscraft.com/image/single/"
+        for (var i = 0; i < imgs.length; i++) {
+            const imgTxt = imgs[i].src 
+            if(imgTxt.includes(wallpapers_image)){
+                imgSrcs.push(imgTxt)
+            };
+        }
+        return imgSrcs;
         });
 
-    }else{
-        console.log("Request Failed ");
-    }
+     console.log(newPage)
 
-});
+  })();
