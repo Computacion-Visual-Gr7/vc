@@ -2,23 +2,23 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Trabajos #  photomosaic algoritm
- analisis de la imagen source  en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.
+<meta name=description content="Trabajos #  Photomosaic Algoritm
+ Análisis de la imagen source  En este paso se busca pixelar la imagen a una resolución determinada, se parte del fragment shader del ejercicio propuesto para esta sección del curso.
  fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Trabajos #  photomosaic algoritm
- analisis de la imagen source  en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.
+<meta property="og:description" content="Trabajos #  Photomosaic Algoritm
+ Análisis de la imagen source  En este paso se busca pixelar la imagen a una resolución determinada, se parte del fragment shader del ejercicio propuesto para esta sección del curso.
  fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-3/shaders/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-06T19:29:48-05:00">
+<meta property="article:modified_time" content="2022-02-06T21:15:27-05:00">
 <title>Shaders | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.9e52850360b629f95de336ab5fb13a60888f06f112ca340a23e9b949d0122f88.js integrity="sha256-nlKFA2C2Kfld4zarX7E6YIiPBvESyjQKI+m5SdASL4g=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.52d49da45a8e8a991f092b50e5b9f4c3a270115f343391f79e6e76d36a8106ed.js integrity="sha256-UtSdpFqOipkfCStQ5bn0w6JwEV80M5H3nm5202qBBu0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -158,7 +158,6 @@ Blog
 <nav id=TableOfContents>
 <ul>
 <li><a href=#trabajos>Trabajos</a></li>
-<li><a href=#webcrawler>WEBCRAWLER</a></li>
 </ul>
 </nav>
 </aside>
@@ -167,11 +166,11 @@ Blog
 Trabajos
 <a class=anchor href=#trabajos>#</a>
 </h1>
-<p>photomosaic algoritm</p>
+<p>Photomosaic Algoritm</p>
 <ol>
-<li>analisis de la imagen source</li>
+<li>Análisis de la imagen source</li>
 </ol>
-<p>en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.</p>
+<p>En este paso se busca pixelar la imagen a una resolución determinada, se parte del fragment shader del ejercicio propuesto para esta sección del curso.</p>
 <div class=book-expand>
 <label>
 <div class="book-expand-head flex justify-between">
@@ -226,11 +225,12 @@ Trabajos
     }
   }
 }
+
 </code></pre></div>
 </div>
 </label>
 </div>
-<p>a partir e ese fragment shader se destacaron partes del codigo usables para el mosaico
+<p>A partir del fragment shader se destacaron partes del código usables para el mosaico</p>
 <div class=book-expand>
 <label>
 <div class="book-expand-head flex justify-between">
@@ -270,7 +270,7 @@ Trabajos
 </div>
 </label>
 </div>
-se añadio la posibilidad de cargar las imagenes por medio de un boton
+<p>Se añadió la posibilidad de cargar las imágenes por medio de un botón
 <iframe id=pas1 style=width:610px;height:610px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -292,16 +292,12 @@ se añadio la posibilidad de cargar las imagenes por medio de un boton
         </html>
       "></iframe>
 </p>
-<h1 id=webcrawler>
-WEBCRAWLER
-<a class=anchor href=#webcrawler>#</a>
-</h1>
-<p>Al ejecutar el archivo webcrawler.js se imprime en consola una serie de imágenes obtenidas de una url</p>
+<p>Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes de un website.</p>
 <ol start=2>
 <li>Ordenamiento de los elementos de la paleta</li>
 </ol>
-<p>para este ordenamiento se hace uso de la libreria Quadrille de p5 que tiene 3 modos o criterios de ordenamiento,
-LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
+<p>Para este ordenamiento se hace uso de la librería Quadrille de p5 que tiene 3 modos o criterios de ordenamiento,
+LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imágenes obtenidas por el webcrawler
 <iframe id=pas2 style=width:1010px;height:170px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -324,9 +320,7 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
       "></iframe>
 </p>
 <ol start=3>
-<li>Hacer el reemplazo de los pixeles a baja reolución con los elementos de la paleta</li>
-</ol>
-<p>para este paso se leen las 10 imagenes</p>
+<li>Hacer el reemplazo de los pixeles a baja resolución con los elementos de la paleta (para este paso se leen las 10 imágenes)
 <iframe id=mosaic style=width:610px;height:610px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -347,7 +341,9 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
           </body>
         </html>
       "></iframe>
-<p>Para la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediate el boton de seleccion &ldquo;seleccione el tipo de sort&rdquo;, posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton &ldquo;descargar paleta&rdquo; tras esto se genera una imagen de la paleta que se podra usar en el siguiente script.
+</li>
+</ol>
+<p>Para la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediante el boton de selección &ldquo;seleccione el tipo de sort&rdquo;, posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton &ldquo;descargar paleta&rdquo; tras esto se genera una imagen de la paleta que se podrá usar en el siguiente script.
 <iframe id=paleta style=width:1010px;height:170px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -369,7 +365,7 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
         </html>
       "></iframe>
 </p>
-<p>En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el prdenamoento pues esto se hace al momento de generar la paleta en el paso anterior.</p>
+<p>En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el prdenamoento pues esto se hace al momento de generar la paleta en el paso anterior.
 <iframe id=mosaic2 style=width:610px;height:610px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -390,10 +386,11 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
           </body>
         </html>
       "></iframe>
+</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/e825a1b2f3f85920dcc258ddc6dbf0f444e55b77 title="Last modified by aeromeror | February 7, 2022" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/dd9dc92e2651c49bb1c59632e6c50073e101df3b title="Last modified by aortegaf | February 7, 2022" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>February 7, 2022</span>
 </a>
@@ -410,7 +407,6 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
 <nav id=TableOfContents>
 <ul>
 <li><a href=#trabajos>Trabajos</a></li>
-<li><a href=#webcrawler>WEBCRAWLER</a></li>
 </ul>
 </nav>
 </div>
