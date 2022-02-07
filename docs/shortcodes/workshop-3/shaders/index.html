@@ -12,13 +12,13 @@
  fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-3/shaders/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-06T21:36:49-05:00">
+<meta property="article:modified_time" content="2022-02-06T23:13:11-05:00">
 <title>Shaders | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.80a2e4e6e4d4eaeb53011ab39d2cdc8bb87ffb3bbf82e10ec23e3f610789b30c.js integrity="sha256-gKLk5uTU6utTARqznSzci7h/+zu/guEOwj4/YQeJsww=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.a1e7d1d0cfda812936d6ed6f2ee7e0f71255486cbaceb98061e6953a7a24d5b4.js integrity="sha256-oefR0M/agSk21u1vLufg9xJVSGy6zrmAYeaVOnok1bQ=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -366,7 +366,7 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imágenes obten
         </html>
       "></iframe>
 </p>
-<p>En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el prdenamoento pues esto se hace al momento de generar la paleta en el paso anterior.
+<p>En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el preordenamiento pues esto se hace al momento de generar la paleta en el paso anterior.
 <iframe id=mosaic2 style=width:610px;height:610px srcdoc="
         <!DOCTYPE html>
         <html>
@@ -391,7 +391,7 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imágenes obten
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/5ed333304bb66c7c5d7d993c3929db8747dc7ab6 title="Last modified by aortegaf | February 7, 2022" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/6c2ec5cfaa1ac5a5e7eac996ad01fafe8ae2e8be title="Last modified by Oscar Andres Mancera Garzón | February 7, 2022" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>February 7, 2022</span>
 </a>
