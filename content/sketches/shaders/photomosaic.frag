@@ -36,15 +36,15 @@ float AVG(vec3 color) {
 
 void main() {
   // define in [0.0, resolution] ∈ R
-  vec2 symbolCoord = vTexCoord * resolution;
+  vec2 symCoord = vTexCoord * resolution;
   // define in [0.0, resolution] ∈ Z
-  vec2 stepCoord = floor(symbolCoord);
+  vec2 pasCoord = floor(symCoord);
   // remap  to [0.0, 1.0] ∈ R
-  symbolCoord = symbolCoord - stepCoord;
+  symCoord = symCoord - pasCoord;
   // remap  to [0.0, 1.0] ∈ R
-  stepCoord = stepCoord / vec2(resolution);
+  pasCoord = pasCoord / vec2(resolution);
   // get vec4 color hash key
-  vec4 key = texture2D(source, stepCoord);
+  vec4 key = texture2D(source, pasCoord);
   mediump float avg7;
   mediump float luma7;
   mediump float zluma;
@@ -53,17 +53,17 @@ void main() {
   mediump float ravg;
   if(avg){
     avg7 =  AVG(key.rgb) * cols;
-    zavg = floor(avg7)+ symbolCoord.s;
+    zavg = floor(avg7)+ symCoord.s;
     ravg = zavg/cols;
-    vec2 fcord = vec2(ravg,symbolCoord.t);
-    vec4 paletteTexel = texture2D(palette, fcord);
-    gl_FragColor =  paletteTexel;
+    vec2 fcord = vec2(ravg,symCoord.t);
+    vec4 paletteTex = texture2D(palette, fcord);
+    gl_FragColor =  paletteTex;
   }else{
     luma7 =  luma(key.rgb) * cols;
-    zluma = floor(luma7)+ symbolCoord.s;
+    zluma = floor(luma7)+ symCoord.s;
     rluma = zluma/cols;
-    vec2 fcord = vec2(rluma,symbolCoord.t);
-    vec4 paletteTexel = texture2D(palette, fcord);
-    gl_FragColor =  paletteTexel;
+    vec2 fcord = vec2(rluma,symCoord.t);
+    vec4 paletteTex = texture2D(palette, fcord);
+    gl_FragColor =  paletteTex;
   } 
 }
