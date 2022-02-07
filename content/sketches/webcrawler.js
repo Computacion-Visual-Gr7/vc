@@ -22,6 +22,20 @@ const puppeteer = require('puppeteer');
         return imgSrcs;
         });
 
-     console.log(newPage)
+        var images = newPage
+        var fs = require('fs'),
+        request = require('request');
 
+        var download = function(uri, filename, callback){
+            request.head(uri, function(err, res, body){
+                request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+            });
+        };
+        
+        for (var i = 0; i < images.length; i++) {
+            var string = './shaders/imagenesmosaico_2/' + i + ".jpg"
+            download(images[i], string, function(){
+                console.log('done');
+            })
+        }
   })();

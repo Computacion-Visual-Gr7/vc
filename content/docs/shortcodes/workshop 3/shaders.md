@@ -1,13 +1,13 @@
 # Trabajos
 
-photomosaic algoritm
+Photomosaic Algoritm
 
-1. analisis de la imagen source
+1. Análisis de la imagen source
 
-en este paso se busca pixelar la imagen a una resolucion determinada, se partido del fragment shader parte del ejercicio propuesto para esta seccion del curso.
+En este paso se busca pixelar la imagen a una resolución determinada, se parte del fragment shader del ejercicio propuesto para esta sección del curso.
+
 
 {{< expand "fragment shader spacial coherence">}}
-
 ```js
 
 precision mediump float;
@@ -55,12 +55,15 @@ void main() {
     }
   }
 }
+
 ```
 {{< /expand >}}
 
-a partir e ese fragment shader se destacaron partes del codigo usables para el mosaico 
-{{< expand "fragment shader spacial coherence partes utilizadas">}}
 
+A partir del fragment shader se destacaron partes del código usables para el mosaico 
+
+
+{{< expand "fragment shader spacial coherence partes utilizadas">}}
 ```js
 
 // img (image or video) is sent by the sketch
@@ -91,33 +94,26 @@ void main() {
 }
 ```
 {{< /expand >}}
-se añadio la posibilidad de cargar las imagenes por medio de un boton 
+
+
+Se añadió la posibilidad de cargar las imágenes por medio de un botón 
 {{< p5-iframe2 sketch="/vc/sketches/pas1.js" width="610" height="610" >}}
 
-# WEBCRAWLER
+Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes de un website.
 
-Al ejecutar el archivo webcrawler.js se imprime en consola una serie de imágenes obtenidas de una url
 
 2. Ordenamiento de los elementos de la paleta
 
-para este ordenamiento se hace uso de la libreria Quadrille de p5 que tiene 3 modos  o criterios de ordenamiento,
-LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes 
+Para este ordenamiento se hace uso de la librería Quadrille de p5 que tiene 3 modos  o criterios de ordenamiento,
+LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imágenes obtenidas por el webcrawler
 {{< p5-iframe2 sketch="/vc/sketches/pas2.js" width="1010" height="170" >}}
 
-3. Hacer el reemplazo de los pixeles a baja reolución con los elementos de la paleta
 
-para este paso se leen las 10 imagenes 
-
+3. Hacer el reemplazo de los pixeles a baja resolución con los elementos de la paleta (para este paso se leen las 10 imágenes)
 {{< p5-iframe2 sketch="/vc/sketches/mosaic.js" width="610" height="610" >}}
 
-Para  la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediate el boton de seleccion "seleccione el tipo de sort", posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton "descargar paleta" tras esto se genera una imagen de la paleta que se podra usar en el siguiente script.
+Para  la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediante el boton de selección "seleccione el tipo de sort", posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton "descargar paleta" tras esto se genera una imagen de la paleta que se podrá usar en el siguiente script.
 {{< p5-iframe2 sketch="/vc/sketches/paleta.js" width="1010" height="170" >}}
 
 En el siguiente script hay dos botones que permiten cargar archivo el que se encuentra en la parte superior es para la carga de la imagen del fotmosaico, el que se encuentra en la parte inferior es para cargar la paleta generada en el script anterior este tendra como nombre photo.png y estara en la carpeta de descargas, este script no trae la opcion de cambiar el prdenamoento pues esto se hace al momento de generar la paleta en el paso anterior.
-
 {{< p5-iframe2 sketch="/vc/sketches/mosaic2.js" width="610" height="610" >}}
-
-
-
-
-
