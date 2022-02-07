@@ -2,19 +2,10 @@ precision mediump float;
 
 // source (image or video) is sent by the sketch
 uniform sampler2D source;
-
-// palette is sent by the sketch
 uniform sampler2D palette;
-// number of cols are sent by the sketch
+
+
 uniform float cols;
-
-// toggles debug
-uniform bool debug;
-
-// toggles coloring
-uniform bool color_on;
-uniform vec4 background;
-uniform vec4 foreground;
 
 // target horizontal & vertical resolution
 uniform float resolution;
@@ -35,23 +26,25 @@ float AVG(vec3 color) {
 }
 
 void main() {
-  // define symbolCoord in [0.0, resolution] ∈ R
-  vec2 symbolCoord = vTexCoord * resolution;
-  // define stepCoord in [0.0, resolution] ∈ Z
-  vec2 stepCoord = floor(symbolCoord);
-  // remap symbolCoord to [0.0, 1.0] ∈ R
-  symbolCoord = symbolCoord - stepCoord;
-  // remap stepCoord to [0.0, 1.0] ∈ R
-  stepCoord = stepCoord / vec2(resolution);
-  // get vec4 color hash key
-  vec4 key = texture2D(source, stepCoord);
+  mediump float avg7;
+  mediump float luma7;
+  mediump float zluma;
+  mediump float rluma;
+  mediump float zavg;
+  mediump float ravg;
   if(avg){
-    vec2 paletteCoord = vec2((floor(AVG(key.rgb) * cols) + symbolCoord.s) / cols, symbolCoord.t);
-    vec4 paletteTexel = texture2D(palette, paletteCoord);
-    gl_FragColor = color_on ? (all(equal(paletteTexel, foreground)) ? key : background) : paletteTexel;
+    avg7 =  AVG(key.rgb) * cols;
+    zavg = floor(avg7)+ symbolCoord.s;
+    ravg = zavg/cols;
+    vec2 fcord = vec2(ravg,symbolCoord.t);
+    vec4 paletteTexel = texture2D(palette, fcord);
+    gl_FragColor =  paletteTexel;
   }else{
-    vec2 paletteCoord = vec2((floor(luma(key.rgb) * cols) + symbolCoord.s) / cols, symbolCoord.t);
-    vec4 paletteTexel = texture2D(palette, paletteCoord);
-    gl_FragColor = color_on ? (all(equal(paletteTexel, foreground)) ? key : background) : paletteTexel;
-  }
+    luma7 =  luma(key.rgb) * cols;
+    zluma = floor(luma7)+ symbolCoord.s;
+    rluma = zluma/cols;
+    vec2 fcord = vec2(rluma,symbolCoord.t);
+    vec4 paletteTexel = texture2D(palette, fcord);
+    gl_FragColor =  paletteTexel;
+  } 
 }
