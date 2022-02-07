@@ -99,7 +99,8 @@ void main() {
 Se añadió la posibilidad de cargar las imágenes por medio de un botón 
 {{< p5-iframe2 sketch="/vc/sketches/pas1.js" width="610" height="610" >}}
 
-Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes de un website.
+Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes desde:
+"https://wallpaperscraft.com/catalog/nature" que serán usadas para el fotomosaico.
 
 
 2. Ordenamiento de los elementos de la paleta

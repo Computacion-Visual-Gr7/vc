@@ -4,7 +4,7 @@ let paleta;
 function preload() {
   paleta = [];
   for (let i = 1; i <= 10; i++) {
-    paleta.push(loadImage(`/vc/sketches/shaders/imagenesmosaico/${i}.jpg`));
+    paleta.push(loadImage(`/vc/sketches/shaders/imagenesmosaico_2/${i}.jpg`));
   }
 }
 
