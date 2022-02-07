@@ -46,7 +46,7 @@ function getLuma(reduced){
       let r = reduced.pixels[index+0];
       let g = reduced.pixels[index+1];
       let b = reduced.pixels[index+2];
-      var luma = r + g + b;
+      var luma = 0.299 * r + 0.587 * g + 0.114 * b;
       avgluma +=luma;
     }
   avgluma = avgluma/(reduced.pixels.length/4);
@@ -59,7 +59,7 @@ function draw() {
 
   for(var x=0;x<10*res.value();x++){
     for(var y=0;y<mosaicQuadrille.size/(10*res.value());y++){
-      var a = mosaicQuadrille.read(y,x)[0] + mosaicQuadrille.read(y,x)[1] + mosaicQuadrille.read(y,x)[2];
+      var a = mosaicQuadrille.read(y,x)[0] * 0.299 + mosaicQuadrille.read(y,x)[1]* 0.587 + mosaicQuadrille.read(y,x)[2]* 0.114;
       var c = setLuma.reduce(function(prev, curr) {
         return (Math.abs(curr - a) < Math.abs(prev - a) ? curr : prev);
       });
