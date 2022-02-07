@@ -108,67 +108,6 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imagenes
 
 para este paso se leen las 10 imagenes 
 
-{{< expand "fragment shader spacial coherence partes utilizadas">}}
-
-```js
-precision mediump float;
-
-// source (image or video) is sent by the sketch
-uniform sampler2D img;
-
-// palette is sent by the sketch
-uniform sampler2D palette;
-// number of cols are sent by sketch
-uniform float cols;
-
-// toggles debug
-uniform bool debug;
-
-// toggles coloring
-uniform bool color_on;
-uniform vec4 background;
-uniform vec4 foreground;
-
-// target horizontal & vertical resolution
-uniform float resolution;
-
-// interpolated color (same name and type as in vertex shader)
-varying vec4 vVertexColor;
-// interpolated texcoord (same name and type as in vertex shader)
-varying vec2 vTexCoord;
-
-float luma(vec3 color) {
-  return 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
-}
-
-void main() {
-  // remap fontCoord to [0.0, resolution] ∈ R
-  vec2 fontCoord = vTexCoord * resolution;
-  // remap srcCoord to [0.0, resolution] ∈ Z
-  vec2 srcCoord = floor(fontCoord);
-  // remap fontCoord to [0.0, 1.0] ∈ R
-  fontCoord = fontCoord - srcCoord;
-  // remap srcCoord to [0.0, 1.0] ∈ R
-  srcCoord = srcCoord / vec2(resolution);
-  // get vec4 color hash key
-  vec4 imgTexel = texture2D(img, srcCoord);
-  if (debug) {
-    gl_FragColor = key;
-  } else {
-    // fontCoord.x :-> offset + x
-    // 1. offset
-    // luma(key.rgb) * cols) : remap luma to [0.0, cols] ∈ R
-    // floor(luma(key.rgb) * cols)) : remap luma to [0.0, cols] ∈ Z
-    // floor(luma(key.rgb) * cols)) / cols : remap luma to [0.0, 1.0] ∈ R
-    // 2. x (1 / cols : quadrille cell width)
-    // fontCoord.x / cols : remap fontCoord.x to [0.0, 1 / cols] ∈ R
-    vec2 tile = vec2((floor(luma(key.rgb) * cols) + fontCoord.x) / cols, fontCoord.y);
-    vec4 paletteTexel = texture2D(palette, tile);
-    gl_FragColor = color_on ? all(equal(paletteTexel, foreground)) ? key : background : paletteTexel;
-  }
-}
-```
-{{< /expand >}}
 {{< p5-iframe2 sketch="/vc/sketches/mosaic.js" width="610" height="610" >}}
 
 Para  la implementacion de paletas propias se hace uso de un script en el que se pueden cargar una a una las imagenes de la paleta esto se puede hacer mediante el boton seleccionar archivo, tras escoger las imagenes que compondran la paleta se debe escoger el metodo de organizacion de los elementos de la paleta(LUMA, AVG o DISTANCE) mediate el boton de seleccion "seleccione el tipo de sort", posteriormente tras elegir el tipo de sort se puede descargar la imagen de la paleta haciendo click en el boton "descargar paleta" tras esto se genera una imagen de la paleta que se podra usar en el siguiente script.
