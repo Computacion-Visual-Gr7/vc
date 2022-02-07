@@ -2,10 +2,19 @@ precision mediump float;
 
 // source (image or video) is sent by the sketch
 uniform sampler2D source;
+
+// palette is sent by the sketch
 uniform sampler2D palette;
-
-
+// number of cols are sent by the sketch
 uniform float cols;
+
+// toggles debug
+uniform bool debug;
+
+
+
+uniform vec4 background;
+uniform vec4 foreground;
 
 // target horizontal & vertical resolution
 uniform float resolution;
@@ -26,6 +35,16 @@ float AVG(vec3 color) {
 }
 
 void main() {
+  // define in [0.0, resolution] ∈ R
+  vec2 symbolCoord = vTexCoord * resolution;
+  // define in [0.0, resolution] ∈ Z
+  vec2 stepCoord = floor(symbolCoord);
+  // remap  to [0.0, 1.0] ∈ R
+  symbolCoord = symbolCoord - stepCoord;
+  // remap  to [0.0, 1.0] ∈ R
+  stepCoord = stepCoord / vec2(resolution);
+  // get vec4 color hash key
+  vec4 key = texture2D(source, stepCoord);
   mediump float avg7;
   mediump float luma7;
   mediump float zluma;
