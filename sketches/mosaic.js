@@ -47,7 +47,7 @@ function preload() {
   image_src = loadImage('/vc/sketches/mandrill.png');
   p = [];
   for (let i = 1; i <= 10; i++) {
-    p.push(loadImage(`/vc/sketches/shaders/imagenesmosaico/${i}.jpg`));
+    p.push(loadImage(`/vc/sketches/shaders/imagenesmosaico_2/${i}.jpg`));
   }
   input = createFileInput(handleFile);
   input.position(10, 30);

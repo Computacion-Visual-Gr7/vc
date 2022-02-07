@@ -12,13 +12,13 @@
  fragment shader spacial coherence ↕  precision mediump float; // img (image or video) is sent by the sketch uniform sampler2D img; // om is sent by the sketch uniform sampler2D om; // displays original uniform bool original; // toggles om display uniform bool om_on; // target horizontal & vertical resolution uniform float resolution; // interpolated color (same name and type as in vertex shader) varying vec4 vVertexColor; // interpolated texcoord (same name and type as in vertex shader) varying vec2 vTexCoord; void main() { if (original) { gl_FragColor = texture2D(img, vTexCoord); } else { // remap omCoord to [0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://computacion-visual-gr7.github.io/vc/docs/shortcodes/workshop-3/shaders/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-06T21:15:27-05:00">
+<meta property="article:modified_time" content="2022-02-06T21:36:49-05:00">
 <title>Shaders | Visual Computing</title>
 <link rel=manifest href=/vc/manifest.json>
 <link rel=icon href=/vc/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/vc/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/vc/flexsearch.min.js></script>
-<script defer src=/vc/en.search.min.52d49da45a8e8a991f092b50e5b9f4c3a270115f343391f79e6e76d36a8106ed.js integrity="sha256-UtSdpFqOipkfCStQ5bn0w6JwEV80M5H3nm5202qBBu0=" crossorigin=anonymous></script>
+<script defer src=/vc/en.search.min.80a2e4e6e4d4eaeb53011ab39d2cdc8bb87ffb3bbf82e10ec23e3f610789b30c.js integrity="sha256-gKLk5uTU6utTARqznSzci7h/+zu/guEOwj4/YQeJsww=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -292,7 +292,8 @@ Trabajos
         </html>
       "></iframe>
 </p>
-<p>Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes de un website.</p>
+<p>Adicionalmente se implementa un webcrawler para la obtención de las imágenes. Al ejecutar el archivo webcrawler.js se obtienen en una carpeta las imágenes desde:
+&ldquo;<a href=https://wallpaperscraft.com/catalog/nature%22>https://wallpaperscraft.com/catalog/nature"</a> que serán usadas para el fotomosaico.</p>
 <ol start=2>
 <li>Ordenamiento de los elementos de la paleta</li>
 </ol>
@@ -390,7 +391,7 @@ LUMA, AVG y DISTANCE, para este ejemplo se usa una paleta con 10 imágenes obten
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/dd9dc92e2651c49bb1c59632e6c50073e101df3b title="Last modified by aortegaf | February 7, 2022" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/Computacion-Visual-Gr7/vc/commit/5ed333304bb66c7c5d7d993c3929db8747dc7ab6 title="Last modified by aortegaf | February 7, 2022" target=_blank rel=noopener>
 <img src=/vc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>February 7, 2022</span>
 </a>
